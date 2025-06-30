@@ -1,16 +1,20 @@
 ---
+import Logo from "@/components/Logo.astro";
+import Layout from "../layouts/Layout.astro";
 
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <section
+    class="grid place-items-center w-screen h-screen bg-gradient-to-br from-stone-800 via-stone-600 to-stone-950"
+  >
+    <div class="p-6 sm:p-8 bg-stone-50 rounded-2xl">
+      <div class="">
+        <Logo />
+      </div>
+      <h1 class="font-bold text-3xl text-center mt-6">Welcome to Positivus</h1>
+    </div>
+  </section>
+</Layout>
