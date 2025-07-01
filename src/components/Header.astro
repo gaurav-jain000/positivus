@@ -1,0 +1,45 @@
+---
+import { MenuIcon } from "lucide-react";
+import Logo from "./Logo.astro";
+import ThemeButton from "@/components/theme-button.astro";
+import { buttonVariants, Button } from "./ui/button";
+import { BookText } from "lucide-react";
+---
+
+<header class=`sticky top-0 maximus py-4 md:py-8 bg-stone-50`>
+  <div class="flex items-center justify-between gap-2">
+    <Logo />
+    <div class="flex md:hidden w-fit">
+      <button>
+        <MenuIcon className="size-[2.5em]" />
+      </button>
+    </div>
+    <nav class="max-md:hidden flex items-center xl:gap-7">
+      {
+        [
+          { title: "About us", url: "/" },
+          { title: "Services", url: "/" },
+          { title: "Use Cases", url: "/" },
+          { title: "Pricing", url: "/" },
+          { title: "Blog", url: "/" },
+        ].map((link) => (
+          <a
+            href={link.url}
+            class={buttonVariants({
+              variant: "ghost",
+              className: "theme-p font-normal",
+            })}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+      <Button size="icon" className="theme-p lg:hidden">
+        <BookText />
+      </Button>
+      <ThemeButton variant="outline" className="theme-p max-lg:hidden">
+        Request a quote
+      </ThemeButton>
+    </nav>
+  </div>
+</header>

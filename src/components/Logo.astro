@@ -1,5 +1,5 @@
 ---
-import ThemeStarIcon from "./ThemeStarIcon.astro";
+import ThemeStarIcon from "@/components/icons/theme-star-icon.astro";
 export interface Props {
   className?: string;
 }
@@ -7,7 +7,7 @@ export interface Props {
 const { className } = Astro.props;
 ---
 
-<div class=`flex items-center text-6xl gap-2 ${className}`>
+<a href="/" class=`flex items-center theme-h2 font-medium! gap-2 ${className}`>
   <ThemeStarIcon />
-  <strong> Positivus </strong>
-</div>
+  Positivus
+</a>
