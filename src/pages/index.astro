@@ -3,11 +3,13 @@ import ThemeButton from "@/components/theme-button.astro";
 import Layout from "../layouts/Layout.astro";
 import MarketingIllustration from "@/components/illustrations/marketing-illustration.astro";
 import ProposalIllustration from "@/components/illustrations/proposal-illustration.astro";
+import ContactIllustration from "@/components/illustrations/contact-illustration.astro";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/section-heading.astro";
 import CaseStudies from "@/components/case-studies.tsx";
 import Testimonials from "@/components/testimonials.tsx";
 import WorkingProcess from "@/components/working-process.tsx";
+import ContactForm from "@/components/contact-form";
 ---
 
 <Layout>
@@ -220,9 +222,7 @@ import WorkingProcess from "@/components/working-process.tsx";
       description={`Explore Real-Life Examples of Our Proven Digital Marketing\nSuccess through Our Case Studies`}
       className="uni-padding-b"
     />
-    <div
-      class="bg-stone-950 rounded-4xl lg:rounded-[45px] p-9 xl:p-12 xl:gap-20"
-    >
+    <div class="bg-stone-950 rounded-4xl lg:rounded-[45px] p-9 xl:p-12">
       <CaseStudies client:visible />
     </div>
   </section>
@@ -405,10 +405,30 @@ import WorkingProcess from "@/components/working-process.tsx";
       description={`Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services`}
       className="uni-padding-b"
     />
-    <div
-      class="bg-stone-900 rounded-4xl lg:rounded-[45px] py-9 xl:py-12 xl:gap-20"
-    >
+    <div class="bg-stone-900 rounded-4xl lg:rounded-[45px] py-9 xl:py-12">
       <Testimonials client:visible />
+    </div>
+  </section>
+  <section class="maximus uni-padding-y">
+    <SectionHeading
+      heading="Contact Us"
+      description={`Connect with Us: Let's Discuss Your Digital Marketing Needs`}
+      className="uni-padding-b"
+    />
+    <div
+      class="bg-stone-100 rounded-4xl lg:rounded-[45px] p-9 xl:py-14 xl:px-24 grid md:grid-cols-2 overflow-hidden relative isolate"
+    >
+      <div class="">
+        <ContactForm client:visible />
+      </div>
+      <div
+        class="grid place-items-center max-md:opacity-50 max-md:absolute right-0 -z-10"
+      >
+        <ContactIllustration
+          className="translate-x-1/2 scale-115 origin-left"
+          sizeFactor={1}
+        />
+      </div>
     </div>
   </section>
 </Layout>
