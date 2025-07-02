@@ -2,13 +2,14 @@
 import ThemeButton from "@/components/theme-button.astro";
 import Layout from "../layouts/Layout.astro";
 import MarketingIllustration from "@/components/illustrations/marketing-illustration.astro";
+import { Button } from "@/components/ui/button";
 ---
 
 <Layout>
   <section class="maximus uni-padding-y">
     <div class="grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-40">
       <div class="flex flex-col gap-4 md:gap-4 lg:gap-9 md:items-start">
-        <h1 class="theme-h1 leading-[1.3em]">
+        <h1 class="theme-h1 leading-[1.3em] text-balance">
           Navigating the digital landscape for success
         </h1>
         <div class="grid place-items-center md:hidden">
@@ -24,6 +25,167 @@ import MarketingIllustration from "@/components/illustrations/marketing-illustra
       <div class="grid place-items-center">
         <MarketingIllustration className="max-md:hidden" sizeFactor={0.9} />
       </div>
+    </div>
+  </section>
+  <section
+    class="maximus uni-padding-y flex items-center justify-between gap-8"
+  >
+    {
+      [
+        "Company logo.webp",
+        "Company logo-1.webp",
+        "Company logo-2.webp",
+        "Company logo-3.webp",
+        "Company logo-4.webp",
+        "Company logo-5.webp",
+      ].map((logo) => (
+        <div class="h-12">
+          <img
+            src={"/company-logos/" + encodeURI(logo)}
+            alt={logo}
+            class="w-auto h-full object-contain object-center grayscale hover:grayscale-0 duration-300"
+          />
+        </div>
+      ))
+    }
+  </section>
+  <section class="maximus uni-padding-y">
+    <div
+      class="flex max-md:flex-col max-md:items-start gap-4 md:gap-10 uni-padding-b"
+    >
+      <h2 class="theme-h2 px-2 bg-(--tertiary) rounded-lg">Services</h2>
+      <p class="body-18 text-balance">
+        At our digital marketing agency, we offer a range of services to help
+        businesses grow and succeed online. These services include:
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-7 xl:gap-10">
+      {
+        [
+          {
+            title: `Search Engine\nOptimization`,
+            illustration:
+              "/illustrations/tokyo-magnifier-web-search-with-elements 2.webp",
+            url: "/",
+          },
+          {
+            title: `Pay-per-click\nAdvertising`,
+            illustration:
+              "/illustrations/tokyo-selecting-a-value-in-the-browser-window 1.webp",
+            url: "/",
+          },
+          {
+            title: `Social Media\nMarketing`,
+            illustration:
+              "/illustrations/tokyo-browser-window-with-emoticon-likes-and-stars-around 2.webp",
+
+            url: "/",
+          },
+          {
+            title: `Email Marketing`,
+            illustration:
+              "/illustrations/tokyo-sending-messages-from-one-place-to-another 1.webp",
+
+            url: "/",
+          },
+          {
+            title: `Content Creation`,
+            illustration:
+              "/illustrations/tokyo-many-browser-windows-with-different-information 1.webp",
+
+            url: "/",
+          },
+          {
+            title: `Analytics &\nTracking`,
+            illustration:
+              "/illustrations/tokyo-volumetric-analytics-of-different-types-in-web-browsers 2.webp",
+            url: "/",
+          },
+        ].map((service, s_index) => {
+          const themeRegulator = [
+            {
+              bg_class: "bg-stone-100",
+              text_highlighting: "text-stone-950",
+            },
+            {
+              bg_class: "bg-(--tertiary)",
+              text_highlighting: "text-stone-950",
+            },
+            {
+              bg_class: "bg-stone-950",
+              text_highlighting: "text-stone-50",
+            },
+          ];
+          return (
+            <div
+              class={`grid lg:grid-cols-2 sm:gap-4 xl:gap-8 justify-between border border-stone-950 p-8 xl:p-12 rounded-4xl md:rounded-[45px] drop-shadow-[0px_5px] drop-shadow-stone-700 ${themeRegulator[s_index % themeRegulator.length].bg_class}`}
+            >
+              <div class="flex flex-col gap-2 items-start justify-between">
+                <h3
+                  class={`theme-h3 ${themeRegulator[s_index % themeRegulator.length].text_highlighting}`}
+                >
+                  {service.title}
+                </h3>
+                <Button
+                  className={`max-lg:hidden size-auto body-20 hover:bg-transparent hover:text-stone-700 ${themeRegulator[s_index % themeRegulator.length].text_highlighting}`}
+                  size="icon"
+                  variant="ghost"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    class="size-[2.4em]! bg-stone-700 p-0.5 rounded-full text-stone-50"
+                    viewBox="0 0 21 21"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14.5 13.5v-7h-7m7 0l-8 8"
+                      stroke-width="1"
+                    />
+                  </svg>
+                  Learn more
+                </Button>
+              </div>
+              <div class="rounded-xl grid grid-cols-3 lg:grid-cols-1 lg:place-items-center">
+                <div class="lg:hidden grid items-end">
+                  <Button
+                    className={`size-auto w-fit body-20 hover:bg-transparent hover:text-stone-700 ${themeRegulator[s_index % themeRegulator.length].text_highlighting}`}
+                    size="icon"
+                    variant="ghost"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
+                      class="size-[2.4em]! bg-stone-700 p-0.5 rounded-full text-stone-50"
+                      viewBox="0 0 21 21"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.5 13.5v-7h-7m7 0l-8 8"
+                        stroke-width="1"
+                      />
+                    </svg>
+                  </Button>
+                </div>
+                <img
+                  src={encodeURI(service.illustration)}
+                  alt={service.illustration}
+                  width={420}
+                  class="w-full max-lg:col-span-2 aspect-square object-center object-contain"
+                />
+              </div>
+            </div>
+          );
+        })
+      }
     </div>
   </section>
 </Layout>
