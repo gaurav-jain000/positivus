@@ -36,8 +36,11 @@ export default function CaseStudies() {
             url: "/learn-react",
           },
         ].map((study) => (
-          <CarouselItem key={study.url} className="ps-8 basis-1/3">
-            <div className="flex flex-col gap-4 p-2">
+          <CarouselItem
+            key={study.url}
+            className="ps-8 basis-full sm:basis-1/3"
+          >
+            <div className="flex flex-col gap-4 px-6 ">
               <p className="body-16 grow line-clamp-4 text-stone-50">
                 {study.desc}
               </p>

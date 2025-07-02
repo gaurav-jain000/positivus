@@ -160,3 +160,7 @@ body {
 .uni-padding-b {
   @apply pb-8 xl:pb-16;
 }
+
+.bottom-stroke {
+  @apply drop-shadow-[0px_5px] drop-shadow-stone-700;
+}
