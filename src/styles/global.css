@@ -157,3 +157,6 @@ body {
 .uni-padding-y {
   @apply py-8 xl:py-16;
 }
+.uni-padding-b {
+  @apply pb-8 xl:pb-16;
+}
