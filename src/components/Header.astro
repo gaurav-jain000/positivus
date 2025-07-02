@@ -14,7 +14,7 @@ import { BookText } from "lucide-react";
         <MenuIcon className="size-[2.5em]" />
       </button>
     </div>
-    <nav class="max-md:hidden flex items-center xl:gap-7">
+    <nav class="max-md:hidden flex items-center xl:gap-5">
       {
         [
           { title: "About us", url: "/" },
@@ -27,17 +27,17 @@ import { BookText } from "lucide-react";
             href={link.url}
             class={buttonVariants({
               variant: "ghost",
-              className: "theme-p font-normal",
+              className: "body-18 font-normal",
             })}
           >
             {link.title}
           </a>
         ))
       }
-      <Button size="icon" className="theme-p lg:hidden">
+      <Button size="icon" className="body-18 lg:hidden">
         <BookText />
       </Button>
-      <ThemeButton variant="outline" className="theme-p max-lg:hidden">
+      <ThemeButton variant="outline" className="body-18 max-lg:hidden">
         Request a quote
       </ThemeButton>
     </nav>
