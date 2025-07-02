@@ -6,6 +6,7 @@ import ProposalIllustration from "@/components/illustrations/proposal-illustrati
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/section-heading.astro";
 import CaseStudies from "@/components/case-studies.tsx";
+import WorkingProcess from "@/components/working-process.tsx";
 ---
 
 <Layout>
@@ -223,5 +224,20 @@ import CaseStudies from "@/components/case-studies.tsx";
     >
       <CaseStudies client:visible />
     </div>
+  </section>
+  <section class="maximus uni-padding-y">
+    <SectionHeading
+      heading="Our Working Process"
+      description="Step-by-Step Guide to Achieving Your Business Goals"
+      className="uni-padding-b"
+    />
+    <WorkingProcess client:visible />
+  </section>
+  <section class="maximus uni-padding-y">
+    <SectionHeading
+      heading="Team"
+      description="Meet the skilled and experienced team behind our successful digital marketing strategies"
+      className="uni-padding-b"
+    />
   </section>
 </Layout>
