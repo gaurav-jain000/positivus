@@ -1,0 +1,18 @@
+---
+export interface Props {
+  className?: string;
+  heading: string;
+  description: string;
+}
+
+const { className, heading, description } = Astro.props;
+---
+
+<div
+  class={`flex max-md:flex-col items-center gap-4 md:gap-10 uni-padding-b ${className}`}
+>
+  <h2 class="theme-h2 px-2 bg-(--tertiary) rounded-lg">{heading}</h2>
+  <p class="body-18 w-3/5 max-md:text-center">
+    {description}
+  </p>
+</div>

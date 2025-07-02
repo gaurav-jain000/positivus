@@ -2,7 +2,10 @@
 import ThemeButton from "@/components/theme-button.astro";
 import Layout from "../layouts/Layout.astro";
 import MarketingIllustration from "@/components/illustrations/marketing-illustration.astro";
+import ProposalIllustration from "@/components/illustrations/proposal-illustration.astro";
 import { Button } from "@/components/ui/button";
+import SectionHeading from "@/components/section-heading.astro";
+import CaseStudies from "@/components/case-studies.tsx";
 ---
 
 <Layout>
@@ -50,15 +53,10 @@ import { Button } from "@/components/ui/button";
     }
   </section>
   <section class="maximus uni-padding-y">
-    <div
-      class="flex max-md:flex-col max-md:items-start gap-4 md:gap-10 uni-padding-b"
-    >
-      <h2 class="theme-h2 px-2 bg-(--tertiary) rounded-lg">Services</h2>
-      <p class="body-18 text-balance">
-        At our digital marketing agency, we offer a range of services to help
-        businesses grow and succeed online. These services include:
-      </p>
-    </div>
+    <SectionHeading
+      heading="Services"
+      description="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
+    />
     <div class="grid sm:grid-cols-2 gap-7 xl:gap-10">
       {
         [
@@ -186,6 +184,44 @@ import { Button } from "@/components/ui/button";
           );
         })
       }
+    </div>
+  </section>
+  <section class="maximus uni-padding-y">
+    <div
+      class="bg-stone-100 rounded-4xl lg:rounded-[45px] p-9 xl:p-12 grid md:grid-cols-2 justify-between items-center xl:gap-20"
+    >
+      <div class="flex flex-col items-start gap-6">
+        <h2 class="theme-h3">Let&apos;s make things happen</h2>
+        <p class="body-16 text-balance">
+          Contact us today to learn more about how our digital marketing
+          services can help your business grow and succeed online.
+        </p>
+        <ThemeButton className="sm:max-md:hidden">
+          Get your free proposal
+        </ThemeButton>
+      </div>
+      <div
+        class="grid max-md:items-end justify-end sm:max-md:grid-cols-2 md:justify-center"
+      >
+        <div class="hidden sm:max-md:block">
+          <ThemeButton> Get your free proposal </ThemeButton>
+        </div>
+        <ProposalIllustration
+          className="scale-105 md:scale-[1.35] lg:scale-150"
+        />
+      </div>
+    </div>
+  </section>
+  <section class="maximus uni-padding-y">
+    <SectionHeading
+      heading="Case Studies"
+      description={`Explore Real-Life Examples of Our Proven Digital Marketing\nSuccess through Our Case Studies`}
+      className="uni-padding-b"
+    />
+    <div
+      class="bg-stone-950 rounded-4xl lg:rounded-[45px] p-9 xl:p-12 xl:gap-20"
+    >
+      <CaseStudies client:visible />
     </div>
   </section>
 </Layout>
