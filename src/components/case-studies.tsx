@@ -49,8 +49,8 @@ export default function CaseStudies() {
         ))}
       </CarouselContent>
       <div className="flex gap-2 justify-center mt-8">
-        <CarouselPrevious className="static translate-0 size-auto p-2 bg-(--tertiary) text-white border-0 text-2xl rounded-lg duration-300" />
-        <CarouselNext className="static translate-0 size-auto p-2 bg-(--tertiary) text-white border-0 text-2xl rounded-lg duration-300" />
+        <CarouselPrevious className="static translate-0 size-auto p-2 bg-(--tertiary) text-white border-0 text-xl rounded-lg duration-300" />
+        <CarouselNext className="static translate-0 size-auto p-2 bg-(--tertiary) text-white border-0 text-xl rounded-lg duration-300" />
       </div>
     </Carousel>
   );
