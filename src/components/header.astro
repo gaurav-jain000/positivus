@@ -4,6 +4,7 @@ import Logo from "./logo.astro";
 import ThemeButton from "@/components/theme-button.astro";
 import { buttonVariants, Button } from "./ui/button";
 import { BookText } from "lucide-react";
+import { navLinksArr } from "@/lib/shared";
 ---
 
 <header class=`sticky top-0 z-50 maximus py-4 md:py-8 bg-white`>
@@ -16,13 +17,7 @@ import { BookText } from "lucide-react";
     </div>
     <nav class="max-md:hidden flex items-center xl:gap-5">
       {
-        [
-          { title: "About us", url: "/" },
-          { title: "Services", url: "/" },
-          { title: "Use Cases", url: "/" },
-          { title: "Pricing", url: "/" },
-          { title: "Blog", url: "/" },
-        ].map((link) => (
+        navLinksArr.map((link) => (
           <a
             href={link.url}
             class={buttonVariants({
