@@ -1,32 +1,32 @@
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "./ui/button";
 export default function Team() {
-  useGSAP(() => {
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger);
-      // console.log("ScrollTrigger registered:", gsap.plugins);
-    }
-    const teamArr = gsap.utils.toArray<HTMLDivElement>(".team-member-item");
-    teamArr.forEach((member, m_index) => {
-      gsap.from(member, {
-        opacity: 0,
-        scale: 0.5,
-        yPercent: 30,
-        transformOrigin: "bottom",
-        delay: m_index * 0.1,
-        duration: 1,
-        ease: "expo",
-        random: true,
-        scrollTrigger: {
-          trigger: member,
-          start: "top 80%",
-          end: "top 40%",
-        },
-      });
-    });
-  }, []);
+  // useGSAP(() => {
+  //   if (typeof window !== "undefined") {
+  //     gsap.registerPlugin(ScrollTrigger);
+  //     // console.log("ScrollTrigger registered:", gsap.plugins);
+  //   }
+  //   const teamArr = gsap.utils.toArray<HTMLDivElement>(".team-member-item");
+  //   teamArr.forEach((member, m_index) => {
+  //     gsap.from(member, {
+  //       opacity: 0,
+  //       scale: 0.5,
+  //       yPercent: 30,
+  //       transformOrigin: "bottom",
+  //       delay: m_index * 0.1,
+  //       duration: 1,
+  //       ease: "expo",
+  //       random: true,
+  //       scrollTrigger: {
+  //         trigger: member,
+  //         start: "top 80%",
+  //         end: "top 40%",
+  //       },
+  //     });
+  //   });
+  // }, []);
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
       {[

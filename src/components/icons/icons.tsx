@@ -1,6 +1,5 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-// import { SplitText } from "gsap/all";
 
 export function ThemeStarIcon({ className }: { className?: string }) {
   useGSAP(() => {

@@ -25,6 +25,7 @@ const { className } = Astro.props;
             />
           </svg>
         ),
+        lable: "linkedin profile",
         url: "https://www.linkedin.com",
       },
       {
@@ -41,6 +42,7 @@ const { className } = Astro.props;
             />
           </svg>
         ),
+        lable: "facebook profile",
         url: "https://www.facebook.com",
       },
       {
@@ -57,10 +59,12 @@ const { className } = Astro.props;
             />
           </svg>
         ),
+        lable: "github profile",
         url: "https://www.github.com",
       },
     ].map((link) => (
       <a href={link.url} target="_blank" rel="noreferrer nofollow me">
+        <span class="sr-only">{link.lable}</span>
         {link.icon}
       </a>
     ))

@@ -1,28 +1,28 @@
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function CompanyLogos() {
-  useGSAP(() => {
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger);
-      // console.log("ScrollTrigger registered:", gsap.plugins);
-    }
+  // useGSAP(() => {
+  //   if (typeof window !== "undefined") {
+  //     gsap.registerPlugin(ScrollTrigger);
+  //     // console.log("ScrollTrigger registered:", gsap.plugins);
+  //   }
 
-    // Company logos animation
-    gsap.from(gsap.utils.toArray<HTMLDivElement>(".company-logo"), {
-      opacity: 0,
-      y: 12,
-      duration: 0.6,
-      ease: "elastic.inOut",
-      stagger: 0.05,
-      random: true,
-      scrollTrigger: {
-        trigger: ".company-logo",
-        start: "top 80%",
-      },
-    });
-  }, []);
+  //   // Company logos animation
+  //   gsap.from(gsap.utils.toArray<HTMLDivElement>(".company-logo"), {
+  //     opacity: 0,
+  //     y: 12,
+  //     duration: 0.6,
+  //     ease: "elastic.inOut",
+  //     stagger: 0.05,
+  //     random: true,
+  //     scrollTrigger: {
+  //       trigger: ".company-logo",
+  //       start: "top 80%",
+  //     },
+  //   });
+  // }, []);
   return (
     <section className="maximus uni-padding-y flex items-center justify-between gap-8">
       {[

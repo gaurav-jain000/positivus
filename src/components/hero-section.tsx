@@ -1,39 +1,39 @@
 import { MarketingIllustration } from "./illustrations/illustrations";
 import ThemeButton from "./theme-button";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
+// import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { SplitText } from "gsap/SplitText";
 
 export default function HeroSection() {
-  useGSAP(() => {
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger, SplitText);
-      // console.log("ScrollTrigger registered:", gsap.plugins);
-    }
-    // H1 animation
-    const splitHead = new SplitText("#splitHead", {
-      type: "chars, words",
-    });
+  // useGSAP(() => {
+  //   if (typeof window !== "undefined") {
+  //     gsap.registerPlugin(ScrollTrigger, SplitText);
+  //     // console.log("ScrollTrigger registered:", gsap.plugins);
+  //   }
+  //   // H1 animation
+  //   const splitHead = new SplitText("#splitHead", {
+  //     type: "chars, words",
+  //   });
 
-    const splitPara = new SplitText("#splitPara", {
-      type: "lines, words",
-    });
+  //   const splitPara = new SplitText("#splitPara", {
+  //     type: "lines, words",
+  //   });
 
-    const tl = gsap.timeline();
-    tl.from(splitHead.chars, {
-      opacity: 0,
-      y: 12,
-      stagger: 0.02,
-      ease: "sine",
-    });
-    gsap.from(splitPara.lines, {
-      opacity: 0,
-      y: 20,
-      stagger: 0.04,
-      ease: "sine",
-    });
-  }, []);
+  //   const tl = gsap.timeline();
+  //   tl.from(splitHead.chars, {
+  //     opacity: 0,
+  //     y: 12,
+  //     stagger: 0.02,
+  //     ease: "sine",
+  //   });
+  //   gsap.from(splitPara.lines, {
+  //     opacity: 0,
+  //     y: 20,
+  //     stagger: 0.04,
+  //     ease: "sine",
+  //   });
+  // }, []);
   return (
     <section className="maximus uni-padding-y">
       <div className="grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-40">

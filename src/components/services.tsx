@@ -1,34 +1,34 @@
 import { Button } from "./ui/button";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Services() {
-  useGSAP(() => {
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger);
-      // console.log("ScrollTrigger registered:", gsap.plugins);
-    }
-    const servicesArr = gsap.utils.toArray<HTMLDivElement>(".service-item");
-    servicesArr.forEach((service, s_index) => {
-      gsap.from(service, {
-        opacity: 0,
-        scale: 0.6,
-        yPercent: 10,
-        transformOrigin: "bottom",
-        delay: s_index * 0.05,
-        duration: 1,
-        stagger: 0.4,
-        ease: "expo",
-        random: true,
-        scrollTrigger: {
-          trigger: service,
-          start: "top 80%",
-          end: "top 40%",
-        },
-      });
-    });
-  }, []);
+  // useGSAP(() => {
+  //   if (typeof window !== "undefined") {
+  //     gsap.registerPlugin(ScrollTrigger);
+  //     // console.log("ScrollTrigger registered:", gsap.plugins);
+  //   }
+  //   const servicesArr = gsap.utils.toArray<HTMLDivElement>(".service-item");
+  //   servicesArr.forEach((service, s_index) => {
+  //     gsap.from(service, {
+  //       opacity: 0,
+  //       scale: 0.6,
+  //       yPercent: 10,
+  //       transformOrigin: "bottom",
+  //       delay: s_index * 0.05,
+  //       duration: 1,
+  //       stagger: 0.4,
+  //       ease: "expo",
+  //       random: true,
+  //       scrollTrigger: {
+  //         trigger: service,
+  //         start: "top 80%",
+  //         end: "top 40%",
+  //       },
+  //     });
+  //   });
+  // }, []);
   return (
     <div className="grid sm:grid-cols-2 gap-7 xl:gap-10">
       {[
