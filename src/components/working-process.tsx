@@ -37,7 +37,7 @@ export default function WorkingProcess() {
         <AccordionItem
           value={step.title}
           key={step.title}
-          className="border-b-0 bg-stone-100 rounded-4xl md:rounded-[45px] bottom-stroke data-[state=open]:bg-(--tertiary)! p-6 md:py-8 md:px-12 hover:bg-stone-200 divide-y divide-transparent data-[state=open]:divide-stone-950 duration-300"
+          className="working-process-item border-b-0 bg-stone-100 rounded-4xl md:rounded-[45px] bottom-stroke data-[state=open]:bg-(--tertiary)! p-6 md:py-8 md:px-12 hover:bg-stone-200 divide-y divide-transparent data-[state=open]:divide-stone-950 duration-300"
         >
           <AccordionTrigger className=" theme-h3 items-center hover:no-underline cursor-pointer data-[state=closed]:py-0 duration-500">
             <div className="sm:text-[2em]">

@@ -1,9 +1,32 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+// import { SplitText } from "gsap/all";
+
 export function ThemeStarIcon({ className }: { className?: string }) {
+  useGSAP(() => {
+    gsap.fromTo(
+      "#theme-star",
+      {
+        scale: 0.5,
+        rotate: 90,
+      },
+      {
+        keyframes: [
+          { scale: 1.2, duration: 0.3 },
+          { scale: 1, duration: 0.3 },
+        ],
+        rotate: 0,
+        duration: 1,
+        ease: "power2.out",
+      }
+    );
+  });
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
+      id="theme-star"
       className={className}
       viewBox="0 0 36 36"
       fill="none"

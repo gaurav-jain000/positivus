@@ -64,7 +64,7 @@ export default function Testimonials() {
             key={testimonial.name}
             className="ps-8 basis-full md:basis-1/2"
           >
-            <div className="flex flex-col gap-4 px-5 h-full">
+            <div className="testimonial-item flex flex-col gap-4 px-5 h-full">
               <p className="body-18 grow text-stone-50 border border-(--tertiary) rounded-4xl lg:rounded-[45px] p-8 md:p-12 relative">
                 &quot;{testimonial.desc}&quot;
                 <div className="size-10 border-b border-s border-inherit bg-stone-900 absolute left-1/5 -translate-x-1/2 translate-y-1/2 bottom-0 -rotate-45"></div>
@@ -87,7 +87,7 @@ export default function Testimonials() {
           {testimonials.map((item, i) => (
             <div className="" key={"star-" + i}>
               <ThemeStarIcon
-                className={`${i === current ? "text-(--tertiary)!" : "text-stone-50!"}`}
+                className={`duration-500 ${i === current ? "text-(--tertiary)!" : "text-stone-50!"}`}
               />
             </div>
           ))}

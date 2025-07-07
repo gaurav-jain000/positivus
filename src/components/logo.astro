@@ -3,11 +3,10 @@ import { ThemeStarIcon } from "@/components/icons/icons.tsx";
 export interface Props {
   className?: string;
 }
-
 const { className } = Astro.props;
 ---
 
 <a href="/" class=`flex items-center theme-h2 font-medium! gap-2 ${className}`>
-  <ThemeStarIcon />
+  <ThemeStarIcon client:visible />
   Positivus
 </a>

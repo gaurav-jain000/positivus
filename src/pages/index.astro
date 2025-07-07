@@ -1,7 +1,6 @@
 ---
 import ThemeButton from "@/components/theme-button.astro";
 import Layout from "../layouts/Layout.astro";
-import MarketingIllustration from "@/components/illustrations/marketing-illustration.astro";
 import ProposalIllustration from "@/components/illustrations/proposal-illustration.astro";
 import ContactIllustration from "@/components/illustrations/contact-illustration.astro";
 import { Button } from "@/components/ui/button";
@@ -10,17 +9,19 @@ import CaseStudies from "@/components/case-studies.tsx";
 import Testimonials from "@/components/testimonials.tsx";
 import WorkingProcess from "@/components/working-process.tsx";
 import ContactForm from "@/components/contact-form";
+import { MarketingIllustration } from "@/components/illustrations/illustrations";
 ---
 
 <Layout>
+  <!-- Hero -->
   <section class="maximus uni-padding-y">
     <div class="grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-40">
       <div class="flex flex-col gap-4 md:gap-4 lg:gap-9 md:items-start">
-        <h1 class="theme-h1 leading-[1.3em] text-balance">
+        <h1 id="splitHead" class="theme-h1 leading-[1.3em] text-balance">
           Navigating the digital landscape for success
         </h1>
         <div class="grid place-items-center md:hidden">
-          <MarketingIllustration sizeFactor={0.9} />
+          <MarketingIllustration sizeFactor={0.9} client:load />
         </div>
         <p class="body-20">
           Our digital marketing agency helps businesses grow and succeed online
@@ -30,10 +31,15 @@ import ContactForm from "@/components/contact-form";
         <ThemeButton> Book a consulation </ThemeButton>
       </div>
       <div class="grid place-items-center">
-        <MarketingIllustration className="max-md:hidden" sizeFactor={0.9} />
+        <MarketingIllustration
+          className="max-md:hidden"
+          sizeFactor={0.9}
+          client:load
+        />
       </div>
     </div>
   </section>
+  <!-- Company logos -->
   <section
     class="maximus uni-padding-y flex items-center justify-between gap-8"
   >
@@ -46,7 +52,7 @@ import ContactForm from "@/components/contact-form";
         "Company logo-4.webp",
         "Company logo-5.webp",
       ].map((logo) => (
-        <div class="h-12">
+        <div class="h-12 company-logo">
           <img
             src={"/company-logos/" + encodeURI(logo)}
             alt={logo}
@@ -56,6 +62,7 @@ import ContactForm from "@/components/contact-form";
       ))
     }
   </section>
+  <!-- Services -->
   <section class="maximus uni-padding-y">
     <SectionHeading
       heading="Services"
@@ -120,7 +127,7 @@ import ContactForm from "@/components/contact-form";
           ];
           return (
             <div
-              class={`grid lg:grid-cols-2 sm:gap-4 xl:gap-8 justify-between border border-stone-950 p-8 xl:p-12 rounded-4xl md:rounded-[45px] bottom-stroke ${themeRegulator[s_index % themeRegulator.length].bg_class}`}
+              class={`service-item grid lg:grid-cols-2 sm:gap-4 xl:gap-8 justify-between border border-stone-950 p-8 xl:p-12 rounded-4xl md:rounded-[45px] bottom-stroke ${themeRegulator[s_index % themeRegulator.length].bg_class}`}
             >
               <div class="flex flex-col gap-2 items-start justify-between">
                 <h3
@@ -190,6 +197,7 @@ import ContactForm from "@/components/contact-form";
       }
     </div>
   </section>
+  <!-- Free Proposal -->
   <section class="maximus uni-padding-y">
     <div
       class="bg-stone-100 rounded-4xl lg:rounded-[45px] p-9 xl:p-12 grid md:grid-cols-2 justify-between items-center xl:gap-20"
@@ -216,6 +224,7 @@ import ContactForm from "@/components/contact-form";
       </div>
     </div>
   </section>
+  <!-- Case Studies -->
   <section class="maximus uni-padding-y">
     <SectionHeading
       heading="Case Studies"
@@ -226,14 +235,16 @@ import ContactForm from "@/components/contact-form";
       <CaseStudies client:visible />
     </div>
   </section>
+  <!-- Working Process -->
   <section class="maximus uni-padding-y">
     <SectionHeading
       heading="Our Working Process"
       description="Step-by-Step Guide to Achieving Your Business Goals"
       className="uni-padding-b"
     />
-    <WorkingProcess client:visible />
+    <WorkingProcess client:idle />
   </section>
+  <!-- Team -->
   <section class="maximus uni-padding-y">
     <SectionHeading
       heading="Team"
@@ -294,7 +305,7 @@ import ContactForm from "@/components/contact-form";
         ]
           .slice(0, 6)
           .map((member) => (
-            <div class="p-8 flex flex-col gap-7 bottom-stroke bg-stone-50 rounded-4xl md:rounded-[45px] border border-current">
+            <div class="team-member-item p-8 flex flex-col gap-7 bottom-stroke bg-stone-50 rounded-4xl md:rounded-[45px] border border-current">
               <div class="flex gap-4 items-end relative">
                 <div class="aspect-square size-[100px] relative isolate">
                   <div
@@ -399,6 +410,7 @@ import ContactForm from "@/components/contact-form";
       <ThemeButton> Meet whole team </ThemeButton>
     </div>
   </section>
+  <!-- Testimonials -->
   <section class="maximus uni-padding-y">
     <SectionHeading
       heading="Testimonials"
@@ -409,6 +421,7 @@ import ContactForm from "@/components/contact-form";
       <Testimonials client:visible />
     </div>
   </section>
+  <!-- Contact Us -->
   <section class="maximus uni-padding-y">
     <SectionHeading
       heading="Contact Us"
