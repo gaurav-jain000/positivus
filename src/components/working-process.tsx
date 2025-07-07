@@ -4,8 +4,37 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function WorkingProcess() {
+  useGSAP(() => {
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+      // console.log("ScrollTrigger registered:", gsap.plugins);
+    }
+
+    const workingProcess = gsap.utils.toArray<HTMLDivElement>(
+      ".working-process-item"
+    );
+    workingProcess.forEach((step) => {
+      gsap.from(step, {
+        opacity: 0,
+        scale: 0.9,
+        yPercent: 30,
+        transformOrigin: "bottom",
+        duration: 0.2,
+        ease: "power2",
+        random: true,
+        scrollTrigger: {
+          trigger: step,
+          start: "top 80%",
+          end: "top 40%",
+        },
+      });
+    });
+  }, []);
   return (
     <Accordion type="single" collapsible className="space-y-8">
       {[

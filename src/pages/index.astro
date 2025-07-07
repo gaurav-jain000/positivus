@@ -1,201 +1,32 @@
 ---
-import ThemeButton from "@/components/theme-button.astro";
+import ThemeButton from "@/components/theme-button.tsx";
 import Layout from "../layouts/Layout.astro";
 import ProposalIllustration from "@/components/illustrations/proposal-illustration.astro";
 import ContactIllustration from "@/components/illustrations/contact-illustration.astro";
-import { Button } from "@/components/ui/button";
-import SectionHeading from "@/components/section-heading.astro";
+import SectionHeading from "@/components/section-heading.tsx";
 import CaseStudies from "@/components/case-studies.tsx";
 import Testimonials from "@/components/testimonials.tsx";
 import WorkingProcess from "@/components/working-process.tsx";
 import ContactForm from "@/components/contact-form";
-import { MarketingIllustration } from "@/components/illustrations/illustrations";
+import Services from "@/components/services.tsx";
+import Team from "@/components/team.tsx";
+import CompanyLogos from "@/components/company-logos";
+import HeroSection from "@/components/hero-section.tsx";
 ---
 
 <Layout>
   <!-- Hero -->
-  <section class="maximus uni-padding-y">
-    <div class="grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-40">
-      <div class="flex flex-col gap-4 md:gap-4 lg:gap-9 md:items-start">
-        <h1 id="splitHead" class="theme-h1 leading-[1.3em] text-balance">
-          Navigating the digital landscape for success
-        </h1>
-        <div class="grid place-items-center md:hidden">
-          <MarketingIllustration sizeFactor={0.9} client:load />
-        </div>
-        <p class="body-20">
-          Our digital marketing agency helps businesses grow and succeed online
-          through a range of services including SEO, PPC, social media
-          marketing, and content creation.
-        </p>
-        <ThemeButton> Book a consulation </ThemeButton>
-      </div>
-      <div class="grid place-items-center">
-        <MarketingIllustration
-          className="max-md:hidden"
-          sizeFactor={0.9}
-          client:load
-        />
-      </div>
-    </div>
-  </section>
+  <HeroSection client:visible />
   <!-- Company logos -->
-  <section
-    class="maximus uni-padding-y flex items-center justify-between gap-8"
-  >
-    {
-      [
-        "Company logo.webp",
-        "Company logo-1.webp",
-        "Company logo-2.webp",
-        "Company logo-3.webp",
-        "Company logo-4.webp",
-        "Company logo-5.webp",
-      ].map((logo) => (
-        <div class="h-12 company-logo">
-          <img
-            src={"/company-logos/" + encodeURI(logo)}
-            alt={logo}
-            class="w-auto h-full object-contain object-center grayscale hover:grayscale-0 duration-300"
-          />
-        </div>
-      ))
-    }
-  </section>
+  <CompanyLogos client:visible />
   <!-- Services -->
   <section class="maximus uni-padding-y">
     <SectionHeading
+      client:visible
       heading="Services"
       description="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
     />
-    <div class="grid sm:grid-cols-2 gap-7 xl:gap-10">
-      {
-        [
-          {
-            title: `Search Engine\nOptimization`,
-            illustration:
-              "/illustrations/tokyo-magnifier-web-search-with-elements 2.webp",
-            url: "/",
-          },
-          {
-            title: `Pay-per-click\nAdvertising`,
-            illustration:
-              "/illustrations/tokyo-selecting-a-value-in-the-browser-window 1.webp",
-            url: "/",
-          },
-          {
-            title: `Social Media\nMarketing`,
-            illustration:
-              "/illustrations/tokyo-browser-window-with-emoticon-likes-and-stars-around 2.webp",
-
-            url: "/",
-          },
-          {
-            title: `Email Marketing`,
-            illustration:
-              "/illustrations/tokyo-sending-messages-from-one-place-to-another 1.webp",
-
-            url: "/",
-          },
-          {
-            title: `Content Creation`,
-            illustration:
-              "/illustrations/tokyo-many-browser-windows-with-different-information 1.webp",
-
-            url: "/",
-          },
-          {
-            title: `Analytics &\nTracking`,
-            illustration:
-              "/illustrations/tokyo-volumetric-analytics-of-different-types-in-web-browsers 2.webp",
-            url: "/",
-          },
-        ].map((service, s_index) => {
-          const themeRegulator = [
-            {
-              bg_class: "bg-stone-100",
-              text_highlighting: "text-stone-950",
-            },
-            {
-              bg_class: "bg-(--tertiary)",
-              text_highlighting: "text-stone-950",
-            },
-            {
-              bg_class: "bg-stone-950",
-              text_highlighting: "text-stone-50",
-            },
-          ];
-          return (
-            <div
-              class={`service-item grid lg:grid-cols-2 sm:gap-4 xl:gap-8 justify-between border border-stone-950 p-8 xl:p-12 rounded-4xl md:rounded-[45px] bottom-stroke ${themeRegulator[s_index % themeRegulator.length].bg_class}`}
-            >
-              <div class="flex flex-col gap-2 items-start justify-between">
-                <h3
-                  class={`theme-h3 ${themeRegulator[s_index % themeRegulator.length].text_highlighting}`}
-                >
-                  {service.title}
-                </h3>
-                <Button
-                  className={`max-lg:hidden size-auto body-20 hover:bg-transparent hover:text-stone-700 ${themeRegulator[s_index % themeRegulator.length].text_highlighting}`}
-                  size="icon"
-                  variant="ghost"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    class="size-[2.4em]! bg-stone-700 p-0.5 rounded-full text-stone-50"
-                    viewBox="0 0 21 21"
-                  >
-                    <path
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M14.5 13.5v-7h-7m7 0l-8 8"
-                      stroke-width="1"
-                    />
-                  </svg>
-                  Learn more
-                </Button>
-              </div>
-              <div class="rounded-xl grid grid-cols-3 lg:grid-cols-1 lg:place-items-center">
-                <div class="lg:hidden grid items-end">
-                  <Button
-                    className={`size-auto w-fit body-20 hover:bg-transparent hover:text-stone-700 ${themeRegulator[s_index % themeRegulator.length].text_highlighting}`}
-                    size="icon"
-                    variant="ghost"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      class="size-[2.4em]! bg-stone-700 p-0.5 rounded-full text-stone-50"
-                      viewBox="0 0 21 21"
-                    >
-                      <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M14.5 13.5v-7h-7m7 0l-8 8"
-                        stroke-width="1"
-                      />
-                    </svg>
-                  </Button>
-                </div>
-                <img
-                  src={encodeURI(service.illustration)}
-                  alt={service.illustration}
-                  width={420}
-                  class="w-full max-lg:col-span-2 aspect-square object-center object-contain"
-                />
-              </div>
-            </div>
-          );
-        })
-      }
-    </div>
+    <Services client:visible />
   </section>
   <!-- Free Proposal -->
   <section class="maximus uni-padding-y">
@@ -227,6 +58,7 @@ import { MarketingIllustration } from "@/components/illustrations/illustrations"
   <!-- Case Studies -->
   <section class="maximus uni-padding-y">
     <SectionHeading
+      client:visible
       heading="Case Studies"
       description={`Explore Real-Life Examples of Our Proven Digital Marketing\nSuccess through Our Case Studies`}
       className="uni-padding-b"
@@ -238,6 +70,7 @@ import { MarketingIllustration } from "@/components/illustrations/illustrations"
   <!-- Working Process -->
   <section class="maximus uni-padding-y">
     <SectionHeading
+      client:visible
       heading="Our Working Process"
       description="Step-by-Step Guide to Achieving Your Business Goals"
       className="uni-padding-b"
@@ -247,165 +80,12 @@ import { MarketingIllustration } from "@/components/illustrations/illustrations"
   <!-- Team -->
   <section class="maximus uni-padding-y">
     <SectionHeading
+      client:visible
       heading="Team"
       description="Meet the skilled and experienced team behind our successful digital marketing strategies"
       className="uni-padding-b"
     />
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-      {
-        [
-          {
-            name: "John Smith",
-            designation: "CEO and Founder",
-            avatar_url:
-              "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=120&h=120&fit=crop",
-            desc: "10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy",
-            linkedin_url: "/",
-          },
-          {
-            name: "Jane Doe",
-            designation: "Director of Operations",
-            avatar_url:
-              "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=120&h=120&fit=crop",
-            desc: "7+ years of experience in project management and team leadership. Strong organizational and communication skills",
-            linkedin_url: "/",
-          },
-          {
-            name: "Michael Brown",
-            designation: "Senior SEO Specialist",
-            avatar_url:
-              "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&h=120&fit=crop",
-            desc: "5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization",
-            linkedin_url: "/",
-          },
-          {
-            name: "Emily Johnson",
-            designation: "PPC Manager",
-            avatar_url:
-              "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=120&h=120&fit=crop",
-            desc: "3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis",
-            linkedin_url: "/",
-          },
-          {
-            name: "Brian Williams",
-            designation: "Social Media Specialist",
-            avatar_url:
-              "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=120&h=120&fit=crop",
-            desc: "4+ years of experience in social media marketing. Proficient in creating and scheduling content, analyzing metrics, and building engagement",
-            linkedin_url: "/",
-          },
-          {
-            name: "Sarah Kim",
-            designation: "Content Creator",
-            avatar_url:
-              "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=120&h=120&fit=crop",
-            desc: "2+ years of experience in writing and editing. Skilled in creating compelling, SEO-optimized content for various industries",
-            linkedin_url: "/",
-          },
-        ]
-          .slice(0, 6)
-          .map((member) => (
-            <div class="team-member-item p-8 flex flex-col gap-7 bottom-stroke bg-stone-50 rounded-4xl md:rounded-[45px] border border-current">
-              <div class="flex gap-4 items-end relative">
-                <div class="aspect-square size-[100px] relative isolate">
-                  <div
-                    class={`absolute top-1 left-1 size-full bg-current [clip-path:path("M84.631_48.9117C117.473_86.3213_87.1455_116.649_49.7359_83.8068C12.3263_116.649_-18.0016_86.3213_14.8408_48.9117C-18.0016_11.5021_12.3263_-18.8258_49.7359_14.0166C87.1455_-18.8258_117.473_11.5021_84.631_48.9117Z")]`}
-                  />
-                  <div
-                    class={`[clip-path:path("M84.631_48.9117C117.473_86.3213_87.1455_116.649_49.7359_83.8068C12.3263_116.649_-18.0016_86.3213_14.8408_48.9117C-18.0016_11.5021_12.3263_-18.8258_49.7359_14.0166C87.1455_-18.8258_117.473_11.5021_84.631_48.9117Z")] size-full bg-(--tertiary) bg-blend-multiply brightness-125`}
-                    style={{ backgroundImage: `url(${member.avatar_url})` }}
-                  >
-                    {/* <img
-                      src={member.avatar_url}
-                      alt={member.name}
-                      class={`object-center object-cover`}
-                    /> */}
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <h3 class="theme-h4 leading-[1.3em]">{member.name}</h3>
-                  <p class="body-18 leading-[1.3em]">{member.designation}</p>
-                </div>
-                <Button
-                  className="text-(--tertiary) rounded-full absolute right-0 top-0"
-                  size="icon"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      cx="4"
-                      cy="4"
-                      r="2"
-                      fill="currentColor"
-                      fill-opacity="0"
-                    >
-                      <animate
-                        fill="freeze"
-                        attributeName="fill-opacity"
-                        dur="0.15s"
-                        values="0;1"
-                      />
-                    </circle>
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="4"
-                    >
-                      <path
-                        stroke-dasharray="12"
-                        stroke-dashoffset="12"
-                        d="M4 10v10"
-                      >
-                        <animate
-                          fill="freeze"
-                          attributeName="stroke-dashoffset"
-                          begin="0.15s"
-                          dur="0.2s"
-                          values="12;0"
-                        />
-                      </path>
-                      <path
-                        stroke-dasharray="12"
-                        stroke-dashoffset="12"
-                        d="M10 10v10"
-                      >
-                        <animate
-                          fill="freeze"
-                          attributeName="stroke-dashoffset"
-                          begin="0.45s"
-                          dur="0.2s"
-                          values="12;0"
-                        />
-                      </path>
-                      <path
-                        stroke-dasharray="24"
-                        stroke-dashoffset="24"
-                        d="M10 15c0 -2.76 2.24 -5 5 -5c2.76 0 5 2.24 5 5v5"
-                      >
-                        <animate
-                          fill="freeze"
-                          attributeName="stroke-dashoffset"
-                          begin="0.65s"
-                          dur="0.2s"
-                          values="24;0"
-                        />
-                      </path>
-                    </g>
-                  </svg>
-                </Button>
-              </div>
-              <div class="h-px bg-current" />
-              <p class="line-clamp-4 body-18">{member.desc}</p>
-            </div>
-          ))
-      }
-    </div>
+    <Team client:visible />
     <div class="pt-10 flex flex-col lg:items-end">
       <ThemeButton> Meet whole team </ThemeButton>
     </div>
@@ -413,17 +93,19 @@ import { MarketingIllustration } from "@/components/illustrations/illustrations"
   <!-- Testimonials -->
   <section class="maximus uni-padding-y">
     <SectionHeading
+      client:visible
       heading="Testimonials"
       description={`Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services`}
       className="uni-padding-b"
     />
     <div class="bg-stone-900 rounded-4xl lg:rounded-[45px] py-9 xl:py-12">
-      <Testimonials client:visible />
+      <Testimonials client:idle />
     </div>
   </section>
   <!-- Contact Us -->
   <section class="maximus uni-padding-y">
     <SectionHeading
+      client:visible
       heading="Contact Us"
       description={`Connect with Us: Let's Discuss Your Digital Marketing Needs`}
       className="uni-padding-b"

@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-import ThemeButton from "./theme-button.astro";
+import ThemeButton from "./theme-button";
 import { Button } from "./ui/button";
 
 export default function ContactForm() {

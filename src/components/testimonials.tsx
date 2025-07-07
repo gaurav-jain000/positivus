@@ -8,6 +8,9 @@ import {
   type CarouselApi,
 } from "./ui/carousel";
 import { ThemeStarIcon } from "./icons/icons";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const testimonials = [
   {
@@ -46,6 +49,32 @@ export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
 
+  useGSAP(() => {
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+      console.log("ScrollTrigger registered:", gsap.plugins);
+    }
+    const testimonialsArr = gsap.utils.toArray<HTMLDivElement>(
+      ".testimonial-item > p"
+    );
+    testimonialsArr.forEach((testimonial, t_index) => {
+      gsap.from(testimonial, {
+        opacity: 0,
+        scale: 0.5,
+        yPercent: 30,
+        transformOrigin: "30% 100%",
+        delay: t_index * 0.1,
+        duration: 1,
+        ease: "expo",
+        random: true,
+        scrollTrigger: {
+          trigger: testimonial,
+          start: "top 80%",
+          end: "top 40%",
+        },
+      });
+    });
+  }, []);
   useEffect(() => {
     if (!api) return;
     api.on("scroll", () => {
